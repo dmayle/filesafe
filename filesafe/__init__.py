@@ -11,7 +11,7 @@ class Chroot(object):
         filechroot = path.abspath(filepath)
         # Needs to worry about similar names
         if not filechroot.startswith(self.chroot):
-            return None
+            raise IOError
         if filechroot == self.chroot:
-            return None
+            raise IOError
         return filepath
