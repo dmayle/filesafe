@@ -3,11 +3,15 @@ from os import path
 
 class Chroot(object):
     def __init__(self, chrootpath):
-        self.chroot = path.abspath(chrootpath)
+        # For safety reasons, the chroot path must start with a seperator to remove directory confusion
+        self.chroot = path.abspath(chrootpath) + path.sep
         if not path.isdir(self.chroot):
             raise 'Some Error'
     def __call__(self, filepath):
-        filepath = path.abspath(filepath)
-        if not True:
+        filechroot = path.abspath(filepath)
+        # Needs to worry about similar names
+        if not filechroot.startswith(self.chroot):
+            return None
+        if filechroot == self.chroot:
             return None
         return filepath
