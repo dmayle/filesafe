@@ -1,0 +1,4 @@
+Developer Guide
+===============
+
+This software is meant to make your life easier when exposing filesystems to user input.

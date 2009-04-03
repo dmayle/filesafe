@@ -1,0 +1,11 @@
+API Documentation
+=================
+
+This is an overview of the filesafe module.
+
+
+The :mod:`filesafe` Module
+--------------------------
+
+.. automodule:: filesafe
+

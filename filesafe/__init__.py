@@ -8,7 +8,22 @@ filetypes = {'dir': INVALID_DIR_CHARS,
              'file': INVALID_FILE_CHARS}
 
 class Chroot(object):
+    """\
+    The Chroot class gives you an easy way to protect your filestore from the
+    ravages of user input.  All error handling is via raised IOError
+    exceptions.  This allows you to use the same error handling mechanisms
+    already in place for your file handling code.
+    """
     def __init__(self, chrootpath, sanitize_method=None):
+        """\
+        Initialize a Chroot class by passing in the directory to restrict file
+        operations to.  Additionally, you can pass in a sanitization method to
+        decide how to handle unwanted characts.  The only currently supported
+        sanitization method is None, i.e. raise an IOError exception for
+        invalid filenames.
+
+        
+        """
         if sanitize_method not in [None, 'strip', 'encode']:
             sanitize_method = None
         self.sanitize_method = sanitize_method

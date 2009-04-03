@@ -1,0 +1,4 @@
+User Guide
+==========
+
+Are you using filesafe?  Than you need to easy_install it and chroot it.
