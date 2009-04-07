@@ -7,6 +7,11 @@ INVALID_DIR_CHARS = compile(r'[?%*:|"<>]')
 filetypes = {'dir': INVALID_DIR_CHARS,
              'file': INVALID_FILE_CHARS}
 
+
+def get_sanitized_path(pathlist):
+    """Turn a list of path elements into a path, while sanitizing the characters"""
+    return path.join(*[INVALID_FILE_CHARS.sub('_', subpath) for subpath in pathlist])
+
 class Chroot(object):
     """\
     The Chroot class gives you an easy way to protect your filestore from the
